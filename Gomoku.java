@@ -1,4 +1,6 @@
 /*
+ * Gomoku.java
+ * 
  * Name: Javier Chavez
  * Email: javierc@unm.edu
  * Sept. 4 2013
@@ -292,9 +294,9 @@ public class Gomoku implements GomokuModel{
 	}
 	
 	private void compterTurn(){
-		int [] mv = new ComputerAI(moves, current).getMove();
-		moves[mv[0]][mv[1]] = current.getSymbol();
-		System.out.print(mv[0]+ " " + mv[1]);
-		createBoardString();
+		int [] mv = new ComputerAI(moves).getMove(); // calling ai, setting the board, & getting a move
+		moves[mv[0]][mv[1]] = current.getSymbol(); // add to board
+		// System.out.print(mv[0]+ " " + mv[1]);
+		createBoardString(); //update the board 
 	}
 }

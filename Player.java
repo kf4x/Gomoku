@@ -1,3 +1,13 @@
+/*
+ * Player.java
+ * 
+ * Name: Javier Chavez
+ * Email: javierc@unm.edu
+ * Sept. 4 2013
+ * CS 251 Lab 2
+ * 
+ */
+
 import cs251.lab2.GomokuModel;
 import cs251.lab2.GomokuModel.Outcome;
 import cs251.lab2.GomokuModel.Square;
