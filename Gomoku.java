@@ -155,6 +155,7 @@ public class Gomoku implements GomokuModel{
 	}
 	
 	/* Visually inspect how to check for a win
+	 * 					TABLE 1
 	 * 						[x,y]  [x,y]  [x,y]
 	 * 1) rightward  		[3,3], [4,3], [5,3]
 	 * 2) downward 			[3,3], [3,4], [3,5]
@@ -164,6 +165,7 @@ public class Gomoku implements GomokuModel{
 	private boolean rDiagonal(int r, int c){
 		Square _sq = moves[r][c];
 		int w = 0;
+		//increment in both col and row see TABLE 1
 		for (int x = c, y = r; x < GomokuModel.NUM_HSQUARES && y < GomokuModel.NUM_VSQUARES; x++,y++) {
 			if (_sq.toChar() == moves[y][x].toChar()) {
 				w++;
@@ -199,6 +201,7 @@ public class Gomoku implements GomokuModel{
 	private boolean rightward(int r, int c){
 		Square _sq = moves[r][c];
 		int w = 0;
+		//we only want to increment the column and search from that col. onwards
 		for (int i = c; i < GomokuModel.NUM_HSQUARES; i++) {
 			if (_sq.toChar() == moves[r][i].toChar()) {
 				w++;
@@ -225,7 +228,12 @@ public class Gomoku implements GomokuModel{
 		return (w >= GomokuModel.SQUARES_IN_LINE_FOR_WIN);
 		
 	}
-	
+	/**
+	 * this checks for a win and returns if a win was detected.
+	 * works by scanning the board top down, when a non-empty square found it looks in all directions.
+	 * @return true if win detected
+	 * 
+	 */
 	private boolean isWin(){
 		for (int i = 0; i < GomokuModel.NUM_VSQUARES; i++) {
 			for (int j = 0; j < GomokuModel.NUM_HSQUARES; j++) {
